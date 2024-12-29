@@ -1,0 +1,411 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --font-heading: 'Lora', serif;
+        --font-body: 'Inter', serif;
+
+        /* Contraste: (14.35:1) */
+        --surface: #141218;
+        --on-surface: #E6E0E9;
+
+        /* Contraste: (10.17:1) */
+        --inverse-surface: #E6E0E9;
+        --inverse-on-surface: #322F35;
+
+        /* Contraste: (9.47:1) */
+        --surface-container-highest: #36343B;
+        /* Contraste: (11.08:1) */
+        --surface-container-high: #2B2930;
+        /* Contraste: (12.57:1) */
+        --surface-container: #211F26;
+        /* Contraste: (13.17:1) */
+        --surface-container-low: #1D1B20;
+        /* Contraste: (14.9:1) */
+        --surface-container-lowest: #0F0D13;
+
+        /* Contraste: (4.97:1) */
+        /* Legibilidade comprometida para textos inferiores a 19px */
+        /* Utilizar fonte de expessura 500~700 */
+        --primary: #D0BCFE;
+        --on-primary: #381E72;
+
+        /* Contraste: (13.32:1)  */
+        --primary-fixed: #EADDFF;
+        --on-primary-fixed: #21005D;
+
+        /* Contraste: (5.47:1) */
+        /* Legibilidade comprometida para textos inferiores a 19px */
+        /* Utilizar fonte de expessura 500~700 */
+        --primary-fixed-dim: #D0BCFF;
+        --on-primary-fixed-variant: #4F378B;
+
+        /* Contraste: (4.97:1) */
+        /* Legibilidade comprometida para textos inferiores a 19px */
+        /* Utilizar fonte de expessura 500~700 */
+        --inverse-primary: #6750A4;
+
+
+        /* Contraste: (7.23:1) */
+        --primary-container: #4F378B;
+        --on-primary-container: #EADDFF;
+
+        /* Contraste: (7.74:1) */
+        --secondary: #CCC2DC;
+        --on-secondary: #332D41;
+
+        /* Contraste: (7.19:1) */
+        --secondary-container: #4A4458;
+        --on-secondary-container: #E8DEF8;
+
+        /* Surface Contraste: (9.3:1) */
+        /* Contraste: () */
+        --star: #ffecb3;
+        --inverse-star: #C68642;
+
+        --raised-hand: #E3AC85;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --font-heading: 'Lora', serif;
+        --font-body: 'Inter', serif;
+
+        /* Contraste: (14.35:1) */
+        --surface: #141218;
+        --on-surface: #E6E0E9;
+
+        /* Contraste: (10.17:1) */
+        --inverse-surface: #E6E0E9;
+        --inverse-on-surface: #322F35;
+
+        /* Contraste: (9.47:1) */
+        --surface-container-highest: #36343B;
+        /* Contraste: (11.08:1) */
+        --surface-container-high: #2B2930;
+        /* Contraste: (12.57:1) */
+        --surface-container: #211F26;
+        /* Contraste: (13.17:1) */
+        --surface-container-low: #1D1B20;
+        /* Contraste: (14.9:1) */
+        --surface-container-lowest: #0F0D13;
+
+        /* Contraste: (4.97:1) */
+        /* Legibilidade comprometida para textos inferiores a 19px */
+        /* Utilizar fonte de expessura 500~700 */
+        --primary: #D0BCFE;
+        --on-primary: #381E72;
+
+        /* Contraste: (13.32:1)  */
+        --primary-fixed: #EADDFF;
+        --on-primary-fixed: #21005D;
+
+        /* Contraste: (5.47:1) */
+        /* Legibilidade comprometida para textos inferiores a 19px */
+        /* Utilizar fonte de expessura 500~700 */
+        --primary-fixed-dim: #D0BCFF;
+        --on-primary-fixed-variant: #4F378B;
+
+        /* Contraste: (4.97:1) */
+        /* Legibilidade comprometida para textos inferiores a 19px */
+        /* Utilizar fonte de expessura 500~700 */
+        --inverse-primary: #6750A4;
+
+
+        /* Contraste: (7.23:1) */
+        --primary-container: #4F378B;
+        --on-primary-container: #EADDFF;
+
+        /* Contraste: (7.74:1) */
+        --secondary: #CCC2DC;
+        --on-secondary: #332D41;
+
+        /* Contraste: (7.19:1) */
+        --secondary-container: #4A4458;
+        --on-secondary-container: #E8DEF8;
+
+        /* Surface Contraste: (9.3:1) */
+        /* Contraste: () */
+        --star: #ffecb3;
+        --inverse-star: #C68642;
+
+        --raised-hand: #E3AC85;
+    }
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--surface);
+    color: var(--on-surface);
+    font-family: var(--font-body);
+
+    /* Equivalente a 16px geralmente.
+     * escala de acordo com o tamanho da fonte do navegador */
+    font-size: 1rem;
+}
+
+
+a {
+    text-decoration: none;
+    color: var(--primary-fixed);
+
+    &:hover {
+        color: var(--primary-fixed-dim);
+        text-decoration: underline;
+    }
+}
+
+/* @media (prefers-color-scheme: light) {
+    a {
+        text-decoration: none;
+        color: var(--primary-fixed);
+
+        &:hover {
+            color: var(--primary-fixed-dim);
+            text-decoration: underline;
+        }
+    }
+} */
+
+/* @media (prefers-color-scheme: dark) {
+    a {
+        text-decoration: none;
+        color: var(--primary-fixed-dim);
+
+        &:hover {
+            color: var(--primary-fixed);
+            text-decoration: underline;
+        }
+    }
+} */
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-heading);
+}
+
+/* Flexbox */
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.row-reverse {
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.justify-start {
+    justify-content: flex-start;
+}
+
+.justify-end {
+    justify-content: flex-end;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.justify-around {
+    justify-content: space-around;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.align-start {
+    align-items: flex-start;
+}
+
+.align-end {
+    align-items: flex-end;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.align-stretch {
+    align-items: stretch;
+}
+
+.align-baseline {
+    align-items: baseline;
+}
+
+.align-content-start {
+    align-content: flex-start;
+}
+
+.align-content-end {
+    align-content: flex-end;
+}
+
+.align-content-center {
+    align-content: center;
+}
+
+.align-content-stretch {
+    align-content: stretch;
+}
+
+.align-content-between {
+    align-content: space-between;
+}
+
+.align-content-around {
+    align-content: space-around;
+}
+
+.col {
+    display: flex;
+    flex: 0 0 auto;
+    flex-grow: 1;
+    flex-basis: 0;
+}
+
+.col-1 {
+    flex: 0 0 auto;
+    flex-grow: 1;
+    flex-basis: calc(100% / 12);
+}
+
+.col-2 {
+    flex: 0 0 auto;
+    flex-grow: 1;
+    flex-basis: calc(100% / 6);
+}
+
+.col-3 {
+    flex: 0 0 auto;
+    flex-grow: 1;
+    flex-basis: calc(100% / 4);
+}
+
+.col-4 {
+    flex: 0 0 auto;
+    flex-grow: 1;
+    flex-basis: calc(100% / 3);
+}
+
+.col-5 {
+    flex: 0 0 auto;
+    flex-grow: 1;
+    flex-basis: calc(100% / 2.4);
+}
+
+.col-6 {
+    flex: 0 0 auto;
+    flex-grow: 1;
+    flex-basis: calc(100% / 2);
+}
+
+.col-7 {
+    flex: 0 0 auto;
+    flex-grow: 1;
+    flex-basis: calc(100% / 1.4);
+}
+
+.col-8 {
+    flex: 0 0 auto;
+    flex-grow: 1;
+    flex-basis: calc(100% / 1.333);
+}
+
+.col-9 {
+    flex: 0 0 auto;
+    flex-grow: 1;
+    flex-basis: calc(100% / 1.2);
+}
+
+.col-10 {
+    flex: 0 0 auto;
+    flex-grow: 1;
+    flex-basis: calc(100% / 1.1);
+}
+
+.col-11 {
+    flex: 0 0 auto;
+    flex-grow: 1;
+    flex-basis: calc(100% / 1.08);
+}
+
+.col-12 {
+    flex: 0 0 auto;
+    flex-grow: 1;
+    flex-basis: 100%;
+}
+
+
+/**
+ * Animações *
+ */
+@keyframes wave {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    10% {
+        transform: rotate(-10deg);
+    }
+
+    20% {
+        transform: rotate(12deg);
+    }
+
+    30% {
+        transform: rotate(-10deg);
+    }
+
+    40% {
+        transform: rotate(9deg);
+    }
+
+    50% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+/**
+ * Material UI *
+ */
+.primary-container {
+    background-color: var(--primary-container);
+    color: var(--on-primary-container);
+}
+
+.secondary-container {
+    background-color: var(--secondary-container);
+    color: var(--on-secondary-container);
+}
