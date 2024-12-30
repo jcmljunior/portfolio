@@ -130,8 +130,8 @@ h6 {
 .container-fluid {
     margin-left: auto;
     margin-right: auto;
-    padding-right: var(--outer-margin, 2rem);
-    padding-left: var(--outer-margin, 2rem);
+    padding-right: 2rem;
+    padding-left: 2rem;
 }
 
 .row {
@@ -223,6 +223,55 @@ h6 {
 .col-xs-12 {
     flex-basis: var(--col-12);
     max-width: var(--col-12);
+}
+
+/* Utilitários... */
+.justify-baseline {
+    justify-content: baseline;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-end {
+    justify-content: flex-end;
+}
+
+.justify-start {
+    justify-content: flex-start;
+}
+
+.justify-around {
+    justify-content: space-around;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.justify-evenly {
+    justify-content: space-evenly;
+}
+
+.align-baseline {
+    align-items: baseline;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.align-end {
+    align-items: flex-end;
+}
+
+.align-start {
+    align-items: flex-start;
+}
+
+.align-stretch {
+    align-items: stretch;
 }
 
 @media (min-width: 36rem) and (max-width: 48rem) {
