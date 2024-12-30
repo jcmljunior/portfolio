@@ -1,6 +1,6 @@
 :root {
-    --font-heading: 'Lora', serif;
-    --font-body: 'Poppins', serif;
+    --font-heading: 'Lato', serif;
+    --font-body: 'Lato', serif;
 
     /* Contraste: (14.35:1) */
     --surface: #141218;
@@ -109,10 +109,10 @@ body {
 
 a {
     text-decoration: none;
-    color: var(--primary-fixed);
+    color: var(--primary-fixed-dim);
 
     &:hover {
-        color: var(--primary-fixed-dim);
+        color: var(--primary-fixed);
         text-decoration: underline;
     }
 }
