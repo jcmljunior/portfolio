@@ -6,21 +6,42 @@
 
 <script>
 export default {
+    data() {
+        return {
+            showScrollButton: false,
+            interpolation: 0,
+            progress: 0,
+        };
+    },
     methods: {
         updateProgress() {
             const scrollTop = window.scrollY;
             const scrollHeight = document.documentElement.scrollHeight;
             const clientHeight = document.documentElement.clientHeight;
             const scrollUpButton = document.querySelector(".scroll-up");
+            const startAnimation = 50;
+            const endAnimation = 70;
 
-            this.progress = (scrollTop / (scrollHeight - clientHeight)) * 100;
+            this.interpolation = scrollTop / (scrollHeight - clientHeight);
+            this.progress = this.interpolation * 100;
 
-            if (this.progress > 60) {
-                scrollUpButton.classList.add("visible");
-                return;
-            }
+            this.showScrollButton = this.progress > 60;
+            scrollUpButton.style.visibility = this.progress > startAnimation ? "visible" : "hidden";
+            scrollUpButton.style.opacity = this.lerp(0, 1, this.mapRange(this.progress, startAnimation, endAnimation));
+            scrollUpButton.style.transform = `translateY(${this.lerp(0, 1, this.mapRange(this.progress, startAnimation, endAnimation))}rem)`;
+        },
 
-            scrollUpButton.classList.remove("visible");
+        lerp(a, b, t) {
+            t = Math.max(0, Math.min(1, t));
+            return a + (b - a) * t;
+        },
+
+        mapRange(value, start, end) {
+            value = Math.max(start, Math.min(value, end));
+            start = Math.min(start, end);
+            end = Math.max(start, end);
+
+            return (value - start) / (end - start);
         },
 
         scrollToTop() {
@@ -55,15 +76,11 @@ export default {
     visibility: hidden;
     opacity: 0;
     transition: all 0.6s ease-in-out;
+    z-index: 2;
 }
 
 .scroll-up:hover {
     background-color: var(--surface-container-highest);
     cursor: pointer;
-}
-
-.scroll-up.visible {
-    visibility: visible;
-    opacity: 1;
 }
 </style>
