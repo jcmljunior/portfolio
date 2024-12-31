@@ -15,8 +15,9 @@ export default {
     data() {
         return {
             showScrollButton: false,
-            interpolation: 0,
             progress: 0,
+            startAnimation: 50,
+            endAnimation: 70
         };
     },
     methods: {
@@ -24,17 +25,14 @@ export default {
             const scrollTop = window.scrollY;
             const scrollHeight = document.documentElement.scrollHeight;
             const clientHeight = document.documentElement.clientHeight;
-            const startAnimation = 50;
-            const endAnimation = 70;
 
-            this.interpolation = scrollTop / (scrollHeight - clientHeight);
-            this.progress = this.interpolation * 100;
+            this.progress = (scrollTop / (scrollHeight - clientHeight)) * 100;
 
-            const mappedValue = this.lerp(0, 1, this.mapRange(this.progress, startAnimation, endAnimation));
+            const mappedValue = this.lerp(0, 1, this.mapRange(this.progress, this.$data.startAnimation, this.$data.endAnimation));
 
-            this.$refs.scrollUpButton.style.visibility = this.progress > startAnimation ? "visible" : "hidden";
-            this.$refs.scrollUpButton.style.opacity = this.lerp(0, 1, mappedValue);
-            this.$refs.scrollUpButton.style.transform = `translateY(${this.lerp(0, 1, mappedValue)}rem)`;
+            this.$refs.scrollUpButton.style.visibility = this.progress > this.$data.startAnimation ? "visible" : "hidden";
+            this.$refs.scrollUpButton.style.opacity = mappedValue;
+            this.$refs.scrollUpButton.style.transform = `translateY(${mappedValue}rem)`;
         },
 
         lerp(a, b, t) {
