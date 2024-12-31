@@ -1,5 +1,5 @@
 <template>
-    <a class="scroll-up" :class="{ 'visible': progress > 50 }" href="#" @click.prevent="scrollToTop"
+    <a class="scroll-up" :class="{ 'visible': showScrollButton }" href="#" @click.prevent="scrollToTop"
         :aria-hidden="!showScrollButton" ref="scrollUpButton">
         <font-awesome-icon :icon="['fas', 'arrow-up']" />
     </a>
