@@ -6,11 +6,6 @@
 
 <script>
 export default {
-    data() {
-        return {
-            progress: 0,
-        };
-    },
     methods: {
         updateProgress() {
             const scrollTop = window.scrollY;
@@ -49,17 +44,22 @@ export default {
     position: fixed;
     right: 2rem;
     bottom: 2rem;
-    background-color: #0099FF;
+    background-color: var(--surface-container);
+    color: var(--on-surface);
     border-radius: 50%;
     width: 4rem;
     height: 4rem;
     text-align: center;
     line-height: 4rem;
     font-size: 2rem;
-    color: #fff;
     visibility: hidden;
     opacity: 0;
     transition: all 0.6s ease-in-out;
+}
+
+.scroll-up:hover {
+    background-color: var(--surface-container-highest);
+    cursor: pointer;
 }
 
 .scroll-up.visible {
