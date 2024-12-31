@@ -38,9 +38,7 @@ header {
     align-items: center;
     flex-wrap: wrap;
     text-align: center;
-
-    /* Correção de espaçamento em telas pequenas...  */
-    padding: 2rem 0 2rem 2rem;
+    padding: 2rem 2rem 0 2rem;
 
     h1 {
         font: bold italic 2rem var(--font-heading);
