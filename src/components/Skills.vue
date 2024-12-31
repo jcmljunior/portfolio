@@ -68,7 +68,7 @@
 
 .primary-container>.title {
     margin-bottom: 2rem;
-    font: 700 italic 3rem "Lora", serif;
+    font: bold italic 3rem var(--font-heading);
     text-shadow: 0 1px rgba(0, 0, 0, .3);
 }
 
