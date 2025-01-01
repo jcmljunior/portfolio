@@ -81,6 +81,7 @@ export default {
     opacity: 0;
     transform: translateY(1rem);
     transition: transform 0.4s ease, opacity 0.4s ease;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
 }
 
 .scroll-up:hover {
