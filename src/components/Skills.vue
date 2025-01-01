@@ -8,51 +8,67 @@
             conforme as necessidades de cada projeto.</p>
         <div>
             <ul class="row justify-center">
-                <li class="col-lg-2 col-md-3 col-sm-3 col-xs-12" itemscope itemtype="https://schema.org/DefinedTerm">
-                    <font-awesome-icon :icon="['fab', 'html5']" class="icon" />
-                    <h3 class="title" itemprop="name">HTML5</h3>
-                </li>
-                <li class="col-lg-2 col-md-3 col-sm-3 col-xs-12" itemscope itemtype="https://schema.org/DefinedTerm">
-                    <font-awesome-icon :icon="['fab', 'css3']" class="icon" />
-                    <h3 class="title" itemprop="name">CSS3</h3>
-                </li>
-                <li class="col-lg-2 col-md-3 col-sm-3 col-xs-12" itemscope itemtype="https://schema.org/DefinedTerm">
-                    <font-awesome-icon :icon="['fab', 'flutter']" class="icon" />
-                    <h3 class="title" itemprop="name">Flutter</h3>
-                </li>
-                <li class="col-lg-2 col-md-3 col-sm-3 col-xs-12" itemscope itemtype="https://schema.org/DefinedTerm">
-                    <font-awesome-icon :icon="['fab', 'js']" class="icon" />
-                    <h3 class="title" itemprop="name">JavaScript</h3>
-                </li>
-
-                <li class="col-lg-2 col-md-3 col-sm-3 col-xs-12" itemscope itemtype="https://schema.org/DefinedTerm">
-                    <font-awesome-icon :icon="['fab', 'vuejs']" class="icon" />
-                    <h3 class="title" itemprop="name">Vue.js</h3>
-                </li>
-                <li class="col-lg-2 col-md-3 col-sm-3 col-xs-12" itemscope itemtype="https://schema.org/DefinedTerm">
-                    <font-awesome-icon :icon="['fab', 'node']" class="icon" />
-                    <h3 class="title" itemprop="name">Node.js</h3>
-                </li>
-                <li class="col-lg-2 col-md-3 col-sm-3 col-xs-12" itemscope itemtype="https://schema.org/DefinedTerm">
-                    <font-awesome-icon :icon="['fas', 'database']" class="icon" />
-                    <h3 class="title" itemprop="name">MySQL</h3>
-                </li>
-                <li class="col-lg-2 col-md-3 col-sm-3 col-xs-12" itemscope itemtype="https://schema.org/DefinedTerm">
-                    <font-awesome-icon :icon="['fab', 'git']" class="icon" />
-                    <h3 class="title" itemprop="name">Git</h3>
-                </li>
-                <li class="col-lg-2 col-md-3 col-sm-3 col-xs-12" itemscope itemtype="https://schema.org/DefinedTerm">
-                    <font-awesome-icon :icon="['fab', 'linux']" class="icon" />
-                    <h3 class="title" itemprop="name">Linux</h3>
+                <li class="col-lg-2 col-md-3 col-sm-3 col-xs-12" itemscope itemtype="https://schema.org/DefinedTerm"
+                    v-for="(skill, index) in this.items" :key="index">
+                    <font-awesome-icon :icon="[skill.icon.split(' ')[0], skill.icon.split(' ')[1]]" class="icon" />
+                    <h3 class="title" itemprop="name">{{ skill.title }}</h3>
                 </li>
             </ul>
         </div>
     </section>
 </template>
 
+<script>
+export default {
+    name: "Skills",
+    data() {
+        return {
+            items: [
+                {
+                    icon: "fab fa-html5",
+                    title: "HTML5"
+                },
+                {
+                    icon: "fab fa-css3",
+                    title: "CSS3"
+                },
+                {
+                    icon: "fab fa-flutter",
+                    title: "Flutter"
+                },
+                {
+                    icon: "fab fa-js",
+                    title: "JavaScript"
+                },
+                {
+                    icon: "fab fa-vuejs",
+                    title: "Vue.js"
+                },
+                {
+                    icon: "fab fa-node",
+                    title: "Node.js"
+                },
+
+                {
+                    icon: "fas fa-database",
+                    title: "Banco de Dados"
+                }, {
+                    icon: "fab fa-git",
+                    title: "Git"
+                },
+                {
+                    icon: "fab fa-linux",
+                    title: "Linux"
+                },
+            ],
+        }
+    }
+}
+</script>
+
 <style scoped>
 .primary-container {
-    min-height: calc(100vh - 10vh);
+    /* min-height: calc(100vh - 10vh); */
     text-align: center;
     align-items: center;
     justify-content: center;
@@ -62,12 +78,12 @@
 .primary-container>.title {
     margin-bottom: 2rem;
     font: bold italic 3rem var(--font-heading);
-    text-shadow: 0 1px rgba(0, 0, 0, .3);
+    text-shadow: 0 1px rgba(0, 0, 0, 0.3);
 }
 
 .primary-container>.description {
     margin-bottom: 2rem;
-    text-shadow: 0 1px rgba(0, 0, 0, .3);
+    text-shadow: 0 1px rgba(0, 0, 0, 0.3);
 }
 
 .primary-container ul {
@@ -79,7 +95,8 @@
     border-radius: 3px;
     transition: all 0.3s ease;
     position: relative;
-    text-shadow: 0 1px rgba(0, 0, 0, .3);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 1px rgba(0, 0, 0, 0.3);
     background-color: var(--inverse-primary);
     color: var(--on-surface);
     text-align: center;
@@ -100,10 +117,6 @@
 
 .primary-container li .title {
     margin-top: 1rem;
-    text-shadow: 0 1px rgba(0, 0, 0, .3);
-}
-
-.primary-container li:hover .title {
-    text-shadow: none;
+    text-shadow: 0 1px rgba(0, 0, 0, 0.3);
 }
 </style>
