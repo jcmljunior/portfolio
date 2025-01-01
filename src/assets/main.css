@@ -36,10 +36,6 @@
         --secondary-container: #7C6BA7;
         --on-secondary-container: #FFFFFF;
 
-        --star: #C68642;
-
-        --inverse-star: #ffecb3;
-
         --raised-hand: #E3AC85;
 
         --col-1: calc(100% / 12 * 1);
@@ -114,13 +110,6 @@
         /* Contraste: (7.19:1) */
         --secondary-container: #4A4458;
         --on-secondary-container: #E8DEF8;
-
-        /* Surface Contraste: (9.3:1) */
-        /* Primary Container Contraste: (7.95:1) */
-        --star: #ffecb3;
-
-        /* Surface Contraste: (6.1:1) */
-        --inverse-star: #C68642;
 
         /* Surface Contraste: (9.3:1) */
         /* Primary Container Contraste: (4.67:1) */
