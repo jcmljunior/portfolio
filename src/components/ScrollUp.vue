@@ -71,11 +71,7 @@ export default {
     background-color: var(--surface-container);
     color: var(--on-surface);
     border-radius: 50%;
-    width: 4rem;
-    height: 4rem;
     text-align: center;
-    line-height: 4rem;
-    font-size: 2rem;
     z-index: 2;
     visibility: hidden;
     opacity: 0;
@@ -83,6 +79,10 @@ export default {
     transition: transform 0.4s ease, opacity 0.4s ease, visibility 0.4s ease, background-color 0.4s ease;
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
     text-shadow: 0 1px rgba(0, 0, 0, .3);
+    width: 3rem;
+    height: 3rem;
+    line-height: 3rem;
+    font-size: 1rem;
 }
 
 .scroll-up:hover {
@@ -94,5 +94,14 @@ export default {
     visibility: visible;
     opacity: 1;
     transform: translateY(0);
+}
+
+@media (min-width: 48rem) {
+    .scroll-up {
+        width: 4rem;
+        height: 4rem;
+        line-height: 4rem;
+        font-size: 2rem;
+    }
 }
 </style>
