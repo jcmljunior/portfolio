@@ -5,20 +5,15 @@
         <h3>Apaixonado por tecnologia e desenvolvimento.</h3>
         <ul>
             <h4>Formas de contato</h4>
-            <li>
-                <h5>Github</h5>
-                <a rel="no-follow" href="https://github.com/jcmljunior" target="_blank">
-                    <font-awesome-icon :icon="['fab', 'github']" />
-                </a>
-            </li>
-            <li>
-                <h5>E-mail</h5>
-                <a rel="no-follow" href="mailto:jcmljunior@gmail.com">
-                    <font-awesome-icon :icon="['fas', 'envelope']" />
+            <li v-for="(social, index) in this.social" :key="index" itemscope itemtype="https://schema.org/DefinedTerm">
+                <h5 itemprop="name">{{ social.name }}</h5>
+                <a itemprop="url" rel="no-follow" href="{{ social.link }}" target="_blank">
+                    <font-awesome-icon :icon="social.icon" />
                 </a>
             </li>
         </ul>
-        <a rel="no-follow" class="button" href="mailto:jcmljunior@gmail.com">Entre em contato</a>
+        <a rel="no-follow" class="button" href="https://api.whatsapp.com/send?phone=5521988156804" target="_blank">Entre
+            em contato</a>
     </header>
     <div class="waves">
         <svg viewBox="0 0 1201 360" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -28,6 +23,32 @@
         </svg>
     </div>
 </template>
+
+<script>
+export default {
+    data() {
+        return {
+            social: [
+                {
+                    name: "Github",
+                    link: "https://github.com/jcmljunior",
+                    icon: ['fab', 'github']
+                },
+                {
+                    name: "E-mail",
+                    link: "mailto:jcmljunior@gmail.com",
+                    icon: ['fas', 'envelope']
+                },
+                {
+                    name: "WhatsApp",
+                    link: "https://api.whatsapp.com/send?phone=5521988156804",
+                    icon: ['fab', 'whatsapp']
+                }
+            ]
+        }
+    }
+}
+</script>
 
 <style scoped>
 header {
