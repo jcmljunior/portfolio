@@ -1,87 +1,148 @@
-:root {
-    --font-heading: 'Lato', serif;
-    --font-body: 'Lato', serif;
+@media (prefers-color-scheme: light) {
+    :root {
+        --font-heading: 'Lato', serif;
+        --font-body: 'Lato', serif;
 
-    /* Contraste: (14.35:1) */
-    --surface: #141218;
-    --on-surface: #E6E0E9;
+        --surface: #FDF7FF;
+        --on-surface: #1D1B20;
 
-    /* Contraste: (10.17:1) */
-    --inverse-surface: #E6E0E9;
-    --inverse-on-surface: #322F35;
+        --inverse-surface: #322F35;
+        --inverse-on-surface: #F5EFF7;
 
-    /* Contraste: (9.47:1) */
-    --surface-container-highest: #36343B;
-    /* Contraste: (11.08:1) */
-    --surface-container-high: #2B2930;
-    /* Contraste: (12.57:1) */
-    --surface-container: #211F26;
-    /* Contraste: (13.17:1) */
-    --surface-container-low: #1D1B20;
-    /* Contraste: (14.9:1) */
-    --surface-container-lowest: #0F0D13;
+        --surface-container-highest: #E6E0E9;
+        --surface-container-high: #ECE6EE;
+        --surface-container: #F2ECF4;
+        --surface-container-low: #F8F2FA;
+        --surface-container-lowest: #FFFFFF;
 
-    /* Contraste: (4.97:1) */
-    /* Legibilidade comprometida para textos inferiores a 19px */
-    /* Utilizar fonte de expessura 500~700 */
-    --primary: #D0BCFE;
-    --on-primary: #381E72;
+        --primary: #493971;
+        --on-primary: #FFFFFF;
 
-    /* Contraste: (13.32:1)  */
-    --primary-fixed: #EADDFF;
-    --on-primary-fixed: #21005D;
+        --primary-fixed: #7B6BA7;
+        --on-primary-fixed: #FFFFFF;
 
-    /* Contraste: (5.47:1) */
-    /* Legibilidade comprometida para textos inferiores a 19px */
-    /* Utilizar fonte de expessura 500~700 */
-    --primary-fixed-dim: #D0BCFF;
-    --on-primary-fixed-variant: #4F378B;
+        --primary-fixed-dim: #62538C;
+        --on-primary-fixed-variant: #FFFFFF;
 
-    /* Contraste: (4.97:1) */
-    /* Legibilidade comprometida para textos inferiores a 19px */
-    /* Utilizar fonte de expessura 500~700 */
-    --inverse-primary: #6750A4;
+        --inverse-primary: #CFBDFE;
+
+        /* Coloração customizada. */
+        --primary-container: #EADDFF;
+        --on-primary-container: #21005D;
+
+        --secondary: #625B71;
+        --on-secondary: #FFFFFF;
+
+        --secondary-container: #7C6BA7;
+        --on-secondary-container: #FFFFFF;
+
+        --star: #C68642;
+
+        --inverse-star: #ffecb3;
+
+        --raised-hand: #E3AC85;
+
+        --col-1: calc(100% / 12 * 1);
+        --col-2: calc(100% / 12 * 2);
+        --col-3: calc(100% / 12 * 3);
+        --col-4: calc(100% / 12 * 4);
+        --col-5: calc(100% / 12 * 5);
+        --col-6: calc(100% / 12 * 6);
+        --col-7: calc(100% / 12 * 7);
+        --col-8: calc(100% / 12 * 8);
+        --col-9: calc(100% / 12 * 9);
+        --col-10: calc(100% / 12 * 10);
+        --col-11: calc(100% / 12 * 11);
+        --col-12: calc(100% / 12 * 12);
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --font-heading: 'Lato', serif;
+        --font-body: 'Lato', serif;
+
+        /* Contraste: (14.35:1) */
+        --surface: #141218;
+        --on-surface: #E6E0E9;
+
+        /* Contraste: (10.17:1) */
+        --inverse-surface: #E6E0E9;
+        --inverse-on-surface: #322F35;
+
+        /* Contraste: (9.47:1) */
+        --surface-container-highest: #36343B;
+        /* Contraste: (11.08:1) */
+        --surface-container-high: #2B2930;
+        /* Contraste: (12.57:1) */
+        --surface-container: #211F26;
+        /* Contraste: (13.17:1) */
+        --surface-container-low: #1D1B20;
+        /* Contraste: (14.9:1) */
+        --surface-container-lowest: #0F0D13;
+
+        /* Contraste: (4.97:1) */
+        /* Legibilidade comprometida para textos inferiores a 19px */
+        /* Utilizar fonte de expessura 500~700 */
+        --primary: #D0BCFE;
+        --on-primary: #381E72;
+
+        /* Contraste: (13.32:1)  */
+        --primary-fixed: #EADDFF;
+        --on-primary-fixed: #21005D;
+
+        /* Contraste: (5.47:1) */
+        /* Legibilidade comprometida para textos inferiores a 19px */
+        /* Utilizar fonte de expessura 500~700 */
+        --primary-fixed-dim: #D0BCFF;
+        --on-primary-fixed-variant: #4F378B;
+
+        /* Contraste: (4.97:1) */
+        /* Legibilidade comprometida para textos inferiores a 19px */
+        /* Utilizar fonte de expessura 500~700 */
+        --inverse-primary: #6750A4;
 
 
-    /* Contraste: (7.23:1) */
-    --primary-container: #4F378B;
-    --on-primary-container: #EADDFF;
+        /* Contraste: (7.23:1) */
+        --primary-container: #4F378B;
+        --on-primary-container: #EADDFF;
 
-    /* Contraste: (7.74:1) */
-    --secondary: #CCC2DC;
-    --on-secondary: #332D41;
+        /* Contraste: (7.74:1) */
+        --secondary: #CCC2DC;
+        --on-secondary: #332D41;
 
-    /* Contraste: (7.19:1) */
-    --secondary-container: #4A4458;
-    --on-secondary-container: #E8DEF8;
+        /* Contraste: (7.19:1) */
+        --secondary-container: #4A4458;
+        --on-secondary-container: #E8DEF8;
 
-    /* Surface Contraste: (9.3:1) */
-    /* Primary Container Contraste: (7.95:1) */
-    --star: #ffecb3;
+        /* Surface Contraste: (9.3:1) */
+        /* Primary Container Contraste: (7.95:1) */
+        --star: #ffecb3;
 
-    /* Surface Contraste: (6.1:1) */
-    --inverse-star: #C68642;
+        /* Surface Contraste: (6.1:1) */
+        --inverse-star: #C68642;
 
-    /* Surface Contraste: (9.3:1) */
-    /* Primary Container Contraste: (4.67:1) */
-    /* Legibilidade comprometida para textos inferiores a 19px */
-    /* Utilizar fonte de expessura 500~700 */
-    --raised-hand: #E3AC85;
+        /* Surface Contraste: (9.3:1) */
+        /* Primary Container Contraste: (4.67:1) */
+        /* Legibilidade comprometida para textos inferiores a 19px */
+        /* Utilizar fonte de expessura 500~700 */
+        --raised-hand: #E3AC85;
 
 
-    /* Flexbox */
-    --col-1: calc(100% / 12 * 1);
-    --col-2: calc(100% / 12 * 2);
-    --col-3: calc(100% / 12 * 3);
-    --col-4: calc(100% / 12 * 4);
-    --col-5: calc(100% / 12 * 5);
-    --col-6: calc(100% / 12 * 6);
-    --col-7: calc(100% / 12 * 7);
-    --col-8: calc(100% / 12 * 8);
-    --col-9: calc(100% / 12 * 9);
-    --col-10: calc(100% / 12 * 10);
-    --col-11: calc(100% / 12 * 11);
-    --col-12: calc(100% / 12 * 12);
+        /* Flexbox */
+        --col-1: calc(100% / 12 * 1);
+        --col-2: calc(100% / 12 * 2);
+        --col-3: calc(100% / 12 * 3);
+        --col-4: calc(100% / 12 * 4);
+        --col-5: calc(100% / 12 * 5);
+        --col-6: calc(100% / 12 * 6);
+        --col-7: calc(100% / 12 * 7);
+        --col-8: calc(100% / 12 * 8);
+        --col-9: calc(100% / 12 * 9);
+        --col-10: calc(100% / 12 * 10);
+        --col-11: calc(100% / 12 * 11);
+        --col-12: calc(100% / 12 * 12);
+    }
 }
 
 *,
