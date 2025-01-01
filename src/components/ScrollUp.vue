@@ -6,61 +6,64 @@
 </template>
 
 <script>
+import { computed, ref, onMounted, onBeforeUnmount } from 'vue';
+
 export default {
-    computed: {
-        showScrollButton() {
-            return this.progress > 60;
-        }
-    },
-    data() {
-        return {
-            showScrollButton: false,
-            progress: 0,
-            startAnimation: 50,
-            endAnimation: 70
-        };
-    },
-    methods: {
-        updateProgress() {
-            const scrollTop = window.scrollY;
-            const scrollHeight = document.documentElement.scrollHeight;
-            const clientHeight = document.documentElement.clientHeight;
+    setup() {
+        const showScrollButton = computed(() => progress.value > startAnimation);
+        const scrollUpButton = ref(null);
+        const progress = ref(0);
+        const startAnimation = 50;
+        const endAnimation = 70;
 
-            this.progress = (scrollTop / (scrollHeight - clientHeight)) * 100;
-
-            const mappedValue = this.lerp(0, 1, this.mapRange(this.progress, this.$data.startAnimation, this.$data.endAnimation));
-
-            this.$refs.scrollUpButton.style.visibility = this.progress > this.$data.startAnimation ? "visible" : "hidden";
-            this.$refs.scrollUpButton.style.opacity = mappedValue;
-            this.$refs.scrollUpButton.style.transform = `translateY(${mappedValue}rem)`;
-        },
-
-        lerp(a, b, t) {
+        // Hooks
+        function lerp(a, b, t) {
             t = Math.max(0, Math.min(1, t));
             return a + (b - a) * t;
-        },
+        }
 
-        mapRange(value, start, end) {
+        function mapRange(value, start, end) {
             value = Math.max(start, Math.min(value, end));
-
             return (value - start) / (end - start);
-        },
+        }
 
-        scrollToTop() {
+        function scrollToTop() {
             window.scrollTo({
                 top: 0,
                 behavior: "smooth",
             });
-        },
+        }
+
+        function updateProgress() {
+            const scrollTop = window.scrollY;
+            const scrollHeight = document.documentElement.scrollHeight;
+            const clientHeight = document.documentElement.clientHeight;
+
+            progress.value = (scrollTop / (scrollHeight - clientHeight)) * 100;
+
+            if (!scrollUpButton.value) return;
+
+            const mappedValue = lerp(0, 1, mapRange(progress.value, startAnimation, endAnimation));
+            scrollUpButton.value.style.visibility = showScrollButton ? "visible" : "hidden";
+            scrollUpButton.value.style.opacity = mappedValue;
+            scrollUpButton.value.style.transform = `translateY(${mappedValue}rem)`;
+        }
+
+        onMounted(() => {
+            window.addEventListener("scroll", updateProgress);
+        });
+
+        onBeforeUnmount(() => {
+            window.removeEventListener("scroll", updateProgress);
+        });
+
+        return {
+            scrollToTop,
+            showScrollButton,
+            scrollUpButton
+        }
     },
-    mounted() {
-        this.scrollUpButton = this.$refs.scrollUpButton;
-        window.addEventListener("scroll", this.updateProgress);
-    },
-    beforeDestroy() {
-        window.removeEventListener("scroll", this.updateProgress);
-    },
-};
+}
 </script>
 
 <style>
