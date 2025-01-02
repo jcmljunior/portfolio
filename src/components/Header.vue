@@ -5,7 +5,7 @@
         <h3 itemprop="description">Apaixonado por tecnologia e desenvolvimento.</h3>
         <ul>
             <h4>Formas de contato</h4>
-            <li itemprop="knowsAbout" v-for="(social, index) in this.social" :key="index">
+            <li itemprop="knowsAbout" v-for="(social, index) in this.state.social" :key="index">
                 <h5 itemprop="name">{{ social.name }}</h5>
                 <a itemprop="url" rel="noopener noreferrer" :href="social.link" target="_blank">
                     <font-awesome-icon :icon="social.icon" />
@@ -27,8 +27,8 @@
 
 <script>
 export default {
-    data() {
-        return {
+    setup() {
+        const state = {
             social: [
                 {
                     name: "Github",
@@ -46,8 +46,12 @@ export default {
                     icon: ['fab', 'whatsapp']
                 }
             ]
+        };
+
+        return {
+            state
         }
-    }
+    },
 }
 </script>
 
@@ -117,8 +121,8 @@ header {
                 width: 3rem;
                 height: 3rem;
                 line-height: 3rem;
-                border-radius: 2rem;
-                font-size: 1.5rem;
+                border-radius: 100%;
+                font-size: 2rem;
                 margin: 0 0.5rem;
                 text-align: center;
                 background-color: var(--surface-container);
@@ -131,6 +135,15 @@ header {
                 &:hover {
                     background-color: var(--surface-container-highest);
                     cursor: pointer;
+                }
+            }
+
+            @media (min-width: 48rem) {
+                a {
+                    width: 4rem;
+                    height: 4rem;
+                    line-height: 4rem;
+                    font-size: 2.4rem;
                 }
             }
         }
