@@ -1,69 +1,61 @@
 <template>
-    <a class="scroll-up" :class="{ 'visible': showScrollButton }" href="#" @click.prevent="scrollToTop"
-        :aria-hidden="!showScrollButton" ref="scrollUpButton">
+    <a class="scroll-up" :class="{ 'visible': showScrollButton }" href="#" ref="scrollUpButton">
         <font-awesome-icon :icon="['fas', 'arrow-up']" />
     </a>
 </template>
 
-<script>
+<script setup>
 import { computed, ref, onMounted, onBeforeUnmount } from 'vue';
 
-export default {
-    setup() {
-        const showScrollButton = computed(() => progress.value > startAnimation);
-        const scrollUpButton = ref(null);
-        const progress = ref(0);
-        const startAnimation = 50;
-        const endAnimation = 70;
+const showScrollButton = computed(() => progress.value > startAnimation);
+const scrollUpButton = ref(null);
+const progress = ref(0);
+const startAnimation = 50;
+const endAnimation = 70;
 
-        // Hooks
-        function lerp(a, b, t) {
-            t = Math.max(0, Math.min(1, t));
-            return a + (b - a) * t;
-        }
-
-        function mapRange(value, start, end) {
-            value = Math.max(start, Math.min(value, end));
-            return (value - start) / (end - start);
-        }
-
-        function scrollToTop() {
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth",
-            });
-        }
-
-        function updateProgress() {
-            const scrollTop = window.scrollY;
-            const scrollHeight = document.documentElement.scrollHeight;
-            const clientHeight = document.documentElement.clientHeight;
-
-            progress.value = (scrollTop / (scrollHeight - clientHeight)) * 100;
-
-            if (!scrollUpButton.value) return;
-
-            const mappedValue = lerp(0, 1, mapRange(progress.value, startAnimation, endAnimation));
-            scrollUpButton.value.style.visibility = showScrollButton ? "visible" : "hidden";
-            scrollUpButton.value.style.opacity = mappedValue;
-            scrollUpButton.value.style.transform = `translateY(${mappedValue}rem)`;
-        }
-
-        onMounted(() => {
-            window.addEventListener("scroll", updateProgress);
-        });
-
-        onBeforeUnmount(() => {
-            window.removeEventListener("scroll", updateProgress);
-        });
-
-        return {
-            scrollToTop,
-            showScrollButton,
-            scrollUpButton
-        }
-    },
+function lerp(a, b, t) {
+    t = Math.max(0, Math.min(1, t));
+    return a + (b - a) * t;
 }
+
+function mapRange(value, start, end) {
+    value = Math.max(start, Math.min(value, end));
+    return (value - start) / (end - start);
+}
+
+function scrollToTop(e) {
+    e.preventDefault()
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+    });
+}
+
+function updateProgress() {
+    const scrollTop = window.scrollY;
+    const scrollHeight = document.documentElement.scrollHeight;
+    const clientHeight = document.documentElement.clientHeight;
+
+    progress.value = (scrollTop / (scrollHeight - clientHeight)) * 100;
+
+    if (!scrollUpButton.value) return;
+
+    const mappedValue = lerp(0, 1, mapRange(progress.value, startAnimation, endAnimation));
+    scrollUpButton.value.style.visibility = showScrollButton ? "visible" : "hidden";
+    scrollUpButton.value.style.opacity = mappedValue;
+    scrollUpButton.value.style.transform = `translateY(${mappedValue}rem)`;
+}
+
+onMounted(() => {
+    window.addEventListener("scroll", updateProgress);
+    scrollUpButton.value?.addEventListener("click", scrollToTop)
+});
+
+onBeforeUnmount(() => {
+    window.removeEventListener("scroll", updateProgress);
+    scrollUpButton.value?.removeEventListener("click", scrollToTop)
+});
 </script>
 
 <style>
@@ -86,25 +78,23 @@ export default {
     height: 3rem;
     line-height: 3rem;
     font-size: 1rem;
-}
 
-.scroll-up:hover {
-    background-color: var(--surface-container-highest);
-    cursor: pointer;
+    @media (min-width: 48rem) {
+        width: 4rem;
+        height: 4rem;
+        line-height: 4rem;
+        font-size: 2rem;
+    }
+
+    &:hover {
+        background-color: var(--surface-container-highest);
+        cursor: pointer;
+    }
 }
 
 .scroll-up.visible {
     visibility: visible;
     opacity: 1;
     transform: translateY(0);
-}
-
-@media (min-width: 48rem) {
-    .scroll-up {
-        width: 4rem;
-        height: 4rem;
-        line-height: 4rem;
-        font-size: 2rem;
-    }
 }
 </style>

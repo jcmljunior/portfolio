@@ -9,7 +9,7 @@
         <div>
             <ul class="row justify-center">
                 <li class="col-lg-2 col-md-3 col-sm-3 col-xs-12" itemscope itemtype="https://schema.org/DefinedTerm"
-                    v-for="(skill, index) in this.items" :key="index">
+                    v-for="(skill, index) in state.items" :key="index">
                     <font-awesome-icon :icon="[skill.icon.split(' ')[0], skill.icon.split(' ')[1]]" class="icon" />
                     <h3 class="title" itemprop="name">{{ skill.title }}</h3>
                 </li>
@@ -18,57 +18,51 @@
     </section>
 </template>
 
-<script>
-export default {
-    name: "Skills",
-    data() {
-        return {
-            items: [
-                {
-                    icon: "fab fa-html5",
-                    title: "HTML5"
-                },
-                {
-                    icon: "fab fa-css3",
-                    title: "CSS3"
-                },
-                {
-                    icon: "fab fa-flutter",
-                    title: "Flutter"
-                },
-                {
-                    icon: "fab fa-js",
-                    title: "JavaScript"
-                },
-                {
-                    icon: "fab fa-vuejs",
-                    title: "Vue.js"
-                },
-                {
-                    icon: "fab fa-node",
-                    title: "Node.js"
-                },
+<script setup>
+const state = {
+    items: [
+        {
+            icon: "fab fa-html5",
+            title: "HTML5"
+        },
+        {
+            icon: "fab fa-css3",
+            title: "CSS3"
+        },
+        {
+            icon: "fab fa-flutter",
+            title: "Flutter"
+        },
+        {
+            icon: "fab fa-js",
+            title: "JavaScript"
+        },
+        {
+            icon: "fab fa-vuejs",
+            title: "Vue.js"
+        },
+        {
+            icon: "fab fa-node",
+            title: "Node.js"
+        },
 
-                {
-                    icon: "fas fa-database",
-                    title: "Banco de Dados"
-                }, {
-                    icon: "fab fa-git",
-                    title: "Git"
-                },
-                {
-                    icon: "fab fa-linux",
-                    title: "Linux"
-                },
-            ],
-        }
-    }
+        {
+            icon: "fas fa-database",
+            title: "Banco de Dados"
+        }, {
+            icon: "fab fa-git",
+            title: "Git"
+        },
+        {
+            icon: "fab fa-linux",
+            title: "Linux"
+        },
+    ],
 }
 </script>
 
 <style scoped>
 .primary-container {
-    /* min-height: calc(100vh - 10vh); */
     text-align: center;
     align-items: center;
     justify-content: center;
@@ -95,7 +89,6 @@ export default {
     border-radius: 3px;
     transition: all 0.3s ease;
     position: relative;
-    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
     text-shadow: 0 1px rgba(0, 0, 0, 0.3);
     background-color: var(--inverse-primary);
     color: var(--on-surface);

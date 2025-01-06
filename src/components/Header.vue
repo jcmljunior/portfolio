@@ -5,15 +5,14 @@
         <h3 itemprop="description">Apaixonado por tecnologia e desenvolvimento.</h3>
         <ul>
             <h4>Formas de contato</h4>
-            <li itemprop="knowsAbout" v-for="(social, index) in this.state.social" :key="index">
+            <li itemprop="knowsAbout" v-for="(social, index) in state.social" :key="index">
                 <h5 itemprop="name">{{ social.name }}</h5>
                 <a itemprop="url" rel="noopener noreferrer" :href="social.link" target="_blank">
                     <font-awesome-icon :icon="social.icon" />
                 </a>
             </li>
         </ul>
-        <a rel="noopener noreferrer" class="button" href="https://api.whatsapp.com/send?phone=5521988156804"
-            target="_blank">Entre
+        <a rel="noopener noreferrer" class="button" href="https://api.whatsapp.com/send?phone=5521988156804">Entre
             em contato</a>
     </header>
     <div class="waves">
@@ -25,33 +24,25 @@
     </div>
 </template>
 
-<script>
-export default {
-    setup() {
-        const state = {
-            social: [
-                {
-                    name: "Github",
-                    link: "https://github.com/jcmljunior",
-                    icon: ['fab', 'github']
-                },
-                {
-                    name: "E-mail",
-                    link: "mailto:jcmljunior@gmail.com",
-                    icon: ['fas', 'envelope']
-                },
-                {
-                    name: "WhatsApp",
-                    link: "https://api.whatsapp.com/send?phone=5521988156804",
-                    icon: ['fab', 'whatsapp']
-                }
-            ]
-        };
-
-        return {
-            state
+<script setup>
+const state = {
+    social: [
+        {
+            name: "Github",
+            link: "https://github.com/jcmljunior",
+            icon: ['fab', 'github']
+        },
+        {
+            name: "E-mail",
+            link: "mailto:jcmljunior@gmail.com",
+            icon: ['fas', 'envelope']
+        },
+        {
+            name: "WhatsApp",
+            link: "https://api.whatsapp.com/send?phone=5521988156804",
+            icon: ['fab', 'whatsapp']
         }
-    },
+    ],
 }
 </script>
 
